@@ -1,5 +1,9 @@
 package io.milvus.param.index;
 
+/**
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#dropIndex(DropIndexParam) dropIndex()}.
+ * 
+ */
 public class DropIndexParam {
     private final String collectionName;
     private final String indexName;

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"io.milvus.client"},{"l":"io.milvus.enums"},{"l":"io.milvus.param"},{"l":"io.milvus.param.alias"},{"l":"io.milvus.param.collection"},{"l":"io.milvus.param.index"},{"l":"所有程序包","u":"allpackages-index.html"}];updateSearchResults();
+packageSearchIndex = [{"l":"io.milvus.client"},{"l":"io.milvus.param"},{"l":"io.milvus.param.alias"},{"l":"io.milvus.param.collection"},{"l":"io.milvus.param.dml"},{"l":"io.milvus.param.enums"},{"l":"io.milvus.param.index"},{"l":"io.milvus.param.partition"},{"l":"所有程序包","u":"allpackages-index.html"}];updateSearchResults();

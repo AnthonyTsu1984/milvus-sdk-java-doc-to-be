@@ -1,7 +1,7 @@
 package io.milvus.param.alias;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#DropAlias(DropAliasParam) DropAlias()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#dropAlias(DropAliasParam) dropAlias()}.
  */
 public class DropAliasParam {
     private final String alias;

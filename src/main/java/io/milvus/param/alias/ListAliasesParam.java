@@ -1,7 +1,7 @@
 package io.milvus.param.alias;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#ListAliases(ListAliasesParam) ListAliases()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#listAliases(ListAliasesParam) listAliases()}.
  */
 public class ListAliasesParam {
     private final String collectionName;

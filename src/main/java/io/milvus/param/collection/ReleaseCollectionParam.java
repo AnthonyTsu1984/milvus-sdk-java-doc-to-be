@@ -1,5 +1,8 @@
 package io.milvus.param.collection;
 
+/**
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#releaseCollection(ReleaseCollectionParam) releaseCollection()}.
+ */
 public class ReleaseCollectionParam {
     private final String collectionName;
 

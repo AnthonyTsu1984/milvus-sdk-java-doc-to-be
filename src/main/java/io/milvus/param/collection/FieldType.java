@@ -1,11 +1,12 @@
 package io.milvus.param.collection;
 
 import java.util.Map;
-import io.milvus.enums.DataType;
+
 import io.milvus.param.Constant;
+import io.milvus.param.enums.DataType;
 
 /**
- * The object class used to prepare parameters for the <code>schema</code> parameter of {@link io.milvus.client.MilvusClient#CreateCollection(CreateCollectionParam) CreateCollection()}.
+ * The object class used to prepare parameters for the schema in {@link io.milvus.client.MilvusClient#createCollection(CreateCollectionParam) createCollection()}.
  */
 public class FieldType {
     private final String name;

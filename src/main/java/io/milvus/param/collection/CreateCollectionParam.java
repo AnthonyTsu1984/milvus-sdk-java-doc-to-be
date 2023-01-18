@@ -1,10 +1,11 @@
 package io.milvus.param.collection;
 
 import java.util.List;
-import io.milvus.enums.ConsistencyLevel;
+
+import io.milvus.param.enums.ConsistencyLevel;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#CreateCollection(CreateCollectionParam) CreateCollection()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#createCollection(CreateCollectionParam) createCollection()}.
  */
 public class CreateCollectionParam {
     private final String collectionName;

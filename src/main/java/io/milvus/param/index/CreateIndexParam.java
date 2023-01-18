@@ -2,12 +2,19 @@ package io.milvus.param.index;
 
 import java.util.Dictionary;
 
+import io.milvus.param.enums.IndexType;
+import io.milvus.param.enums.MetricType;
+
+/**
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#createIndex(CreateIndexParam) createIndex()}.
+ * 
+ */
 public class CreateIndexParam {
     private final String collectionName;
     private final String fieldName;
     private final String indexName;
-    private final String indexType;
-    private final String metricType;
+    private final IndexType indexType;
+    private final MetricType metricType;
     private final Dictionary extraParam;
     private final Boolean syncMode;
     private final int syncWaitingInterval;
@@ -89,7 +96,7 @@ public class CreateIndexParam {
          *  <a href="https://milvus.io/docs/disk_index.md">On-disk Index</a>
          * @return The builder object itself.
          */
-        public Builder withIndexType(String indexType) {
+        public Builder withIndexType(IndexType indexType) {
             this.indexType = indexName;
             return this;
         }
@@ -101,7 +108,7 @@ public class CreateIndexParam {
          * @see <a href="https://milvus.io/docs/metric.md">Similarity Metrics</a>
          * @return The builder object itself.
          */
-        public Builder withMetricType(String metricType) {
+        public Builder withMetricType(MetricType metricType) {
             this.metricType = metricType;
             return this;
         }

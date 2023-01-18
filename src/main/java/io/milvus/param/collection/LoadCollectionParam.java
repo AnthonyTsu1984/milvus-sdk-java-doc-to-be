@@ -1,8 +1,11 @@
 package io.milvus.param.collection;
 
+/**
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#loadCollection(LoadCollectionParam) loadCollection()}.
+ */
 public class LoadCollectionParam {
     private final String collectionName;
-    private final Boolean aync;
+    private final Boolean async;
     private final int loadWaitingInterval;
     private final int loadWaitingTimeout;
     private final int numReplicas;
@@ -25,7 +28,7 @@ public class LoadCollectionParam {
      */
     public static final class Builder {
         private String collectionName;
-        private Boolean aync;
+        private Boolean async;
         private int loadWaitingInterval;
         private int loadWaitingTimeout;
         private int numReplicas;

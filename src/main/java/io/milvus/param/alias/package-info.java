@@ -1,5 +1,5 @@
 /**
- * Provides collection-alias-related parameter object classes.
+ * Provides alias-related parameter object classes.
  * 
  * @since 2.3.0
  */
