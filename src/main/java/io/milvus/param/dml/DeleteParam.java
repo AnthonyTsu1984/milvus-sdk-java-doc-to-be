@@ -13,7 +13,7 @@ public class DeleteParam {
 
     private DeleteParam(Builder builder) {
         this.collectionName = builder.collectionName;
-        this.partitioName = builder.partitioName;
+        this.partitionName = builder.partitionName;
         this.expr = builder.expr;
         this.primaryKeys = builder.primaryKeys;
     }
@@ -51,7 +51,7 @@ public class DeleteParam {
          * @return The builder object itself.
          */
         public Builder withPartitionName(String partitionName) {
-            this.partitioName = partitionName;
+            this.partitionName = partitionName;
             return this;
         }
 
