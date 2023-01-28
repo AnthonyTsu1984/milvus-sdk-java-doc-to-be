@@ -18,6 +18,5 @@ public enum IndexType {
     BIN_IVF_FLAT,
 
     //Only for varchar type field
-    TRIE,
-    ;    
+    TRIE   
 }
