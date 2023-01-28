@@ -97,7 +97,7 @@ public class CreateIndexParam {
          * @return The builder object itself.
          */
         public Builder withIndexType(IndexType indexType) {
-            this.indexType = indexName;
+            this.indexType = indexType;
             return this;
         }
 
