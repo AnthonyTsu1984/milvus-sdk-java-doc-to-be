@@ -43,8 +43,8 @@ public class CreateIndexParam {
         private String collectionName;
         private String fieldName;
         private String indexName;
-        private String indexType;
-        private String metricType;
+        private IndexType indexType;
+        private MetricType metricType;
         private Dictionary extraParam;
         private Boolean syncMode;
         private int syncWaitingInterval;
