@@ -1,5 +1,5 @@
 /**
- * Provides collection-related parameter object classes.
+ * Provides collection-related parameter builder classes.
  * 
  * @since 2.3.0
  */

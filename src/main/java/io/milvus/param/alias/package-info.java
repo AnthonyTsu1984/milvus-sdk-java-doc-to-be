@@ -1,5 +1,5 @@
 /**
- * Provides alias-related parameter object classes.
+ * Provides alias-related parameter builder classes.
  * 
  * @since 2.3.0
  */

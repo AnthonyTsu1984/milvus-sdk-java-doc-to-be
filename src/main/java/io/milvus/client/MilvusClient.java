@@ -21,6 +21,10 @@ import io.milvus.param.index.*;
 import io.milvus.param.partition.*;
 
 
+/**
+ * An abstract interface that represents a Milvus client and defines the manipulation methods.
+ * 
+ */
 public interface MilvusClient {
 
     /**

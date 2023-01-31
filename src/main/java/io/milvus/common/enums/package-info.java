@@ -3,4 +3,4 @@
  * 
  * @since 1.0.0
  */
-package io.milvus.param.enums;
+package io.milvus.common.enums;

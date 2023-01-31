@@ -1,4 +1,4 @@
-package io.milvus.param.enums;
+package io.milvus.common.enums;
 
 public enum MetricType {
     INVALID,

@@ -2,8 +2,8 @@ package io.milvus.param.index;
 
 import java.util.Dictionary;
 
-import io.milvus.param.enums.IndexType;
-import io.milvus.param.enums.MetricType;
+import io.milvus.common.enums.IndexType;
+import io.milvus.common.enums.MetricType;
 
 /**
  * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#createIndex(CreateIndexParam) createIndex()}.

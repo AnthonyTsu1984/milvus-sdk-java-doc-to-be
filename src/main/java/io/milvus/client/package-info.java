@@ -1,5 +1,5 @@
 /**
- * Provides classes to create a Milvus client to communicate with a compatible Milvus instance.
+ * Provides the Milvus client-side APIs.
  * 
  * @since 1.0.0
  */

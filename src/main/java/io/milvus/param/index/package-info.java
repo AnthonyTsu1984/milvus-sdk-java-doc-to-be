@@ -1,5 +1,5 @@
 /**
- * Provides index-related parameter object classes.
+ * Provides index-related parameter builder classes.
  * 
  * @since 2.3.0
  */

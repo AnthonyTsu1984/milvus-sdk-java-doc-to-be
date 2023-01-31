@@ -1,2 +1,5 @@
 .vscode
+.m2
+.DS_Store
 target
+setup.sh

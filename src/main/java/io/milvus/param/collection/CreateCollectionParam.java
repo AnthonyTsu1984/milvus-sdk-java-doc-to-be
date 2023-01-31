@@ -2,7 +2,7 @@ package io.milvus.param.collection;
 
 import java.util.List;
 
-import io.milvus.param.enums.ConsistencyLevel;
+import io.milvus.common.enums.ConsistencyLevel;
 
 /**
  * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#createCollection(CreateCollectionParam) createCollection()}.

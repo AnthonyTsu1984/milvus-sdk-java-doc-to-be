@@ -1,5 +1,5 @@
 /**
- * Provides packages that hold all parameter object classes.
+ * Provides parameter builder classes.
  * 
  * @since 1.0.0
  */

@@ -1,5 +1,5 @@
 /**
- * Provides partition-related parameter object classes.
+ * Provides partition-related parameter builder classes.
  * 
  * @since 2.3.0
  */
