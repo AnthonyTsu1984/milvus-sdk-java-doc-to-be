@@ -25,11 +25,13 @@ public class DeleteParam {
     /**
      * The builder class for the {@link DeleteParam} object class.
      */
-    public static class Builder {
+    public static final class Builder {
         private String collectionName;
         private String partitionName;
         private String expr;
         private List<Integer> primaryKeys; 
+
+        private Builder() {}
        
         /**
          * Specifies the name of the collection in concern.

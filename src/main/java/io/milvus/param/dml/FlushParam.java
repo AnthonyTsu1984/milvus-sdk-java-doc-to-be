@@ -23,6 +23,8 @@ public class FlushParam {
         private String collectionName;
         private boolean asyncFlush;
 
+        private Builder() {}
+
         /**
          * Specifies the name of the target collection.
          * 
