@@ -11,6 +11,7 @@ public class ReleasePartitionParam {
     private ReleasePartitionParam(Builder builder) {
         this.collectionName = builder.collectionName;
         this.partitionName = builder.partitionName;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
