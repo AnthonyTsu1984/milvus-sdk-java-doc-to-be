@@ -18,3 +18,7 @@ mvn javadoc:javadoc
 mvn javadoc:javadoc
 mvn javadoc:javadoc
 exit
+mvn javadoc:javadoc
+cd root
+mvn javadoc:javadoc
+exit
