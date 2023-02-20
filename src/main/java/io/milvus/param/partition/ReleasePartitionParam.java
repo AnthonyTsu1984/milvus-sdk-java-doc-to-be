@@ -6,6 +6,7 @@ package io.milvus.param.partition;
 public class ReleasePartitionParam {
     private final String collectionName;
     private final String partitionName;
+    private final double timeout;
 
     private ReleasePartitionParam(Builder builder) {
         this.collectionName = builder.collectionName;
@@ -22,6 +23,7 @@ public class ReleasePartitionParam {
     public static final class Builder {
         private String collectionName;
         private String partitionName;
+        private double timeout;
 
         private Builder() {}
 
@@ -46,6 +48,17 @@ public class ReleasePartitionParam {
          */
         public Builder withPartitionName(String partitionName) {
             this.partitionName = partitionName;
+            return this;
+        }
+
+        /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

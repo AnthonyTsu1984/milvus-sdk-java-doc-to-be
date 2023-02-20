@@ -52,7 +52,7 @@ public class ListBulkInsertParam {
         /**
          * Verifies the input parameters and creates a {@link ListBulkInsertParam} object.
          * 
-         * @return
+         * @return {@linkplain ListBulkInsertParam}
          */
         public ListBulkInsertParam build() {
             return new ListBulkInsertParam(this);

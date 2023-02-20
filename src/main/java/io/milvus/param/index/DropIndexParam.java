@@ -7,10 +7,12 @@ package io.milvus.param.index;
 public class DropIndexParam {
     private final String collectionName;
     private final String indexName;
+    private final double timeout;
 
     private DropIndexParam(Builder builder) {
         this.collectionName = builder.collectionName;
         this.indexName = builder.indexName;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -23,6 +25,7 @@ public class DropIndexParam {
     public static final class Builder {
         private String collectionName;
         private String indexName;
+        private double timeout;
 
         private Builder() {}
 
@@ -47,6 +50,17 @@ public class DropIndexParam {
          */
         public Builder withIndexName(String indexName) {
             this.indexName = indexName;
+            return this;
+        }
+
+        /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

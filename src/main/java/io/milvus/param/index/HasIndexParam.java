@@ -1,14 +1,16 @@
-package io.milvus.param.collection;
+package io.milvus.param.index;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#dropCollection(DropCollectionParam) dropCollection()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#hasIndex(HasIndexParam) hasIndex()}.
  */
-public class DropCollectionParam {
+public class HasIndexParam {
     private final String collectionName;
+    private final String indexName;
     private final double timeout;
 
-    private DropCollectionParam(Builder builder) {
+    private HasIndexParam(Builder builder) {
         this.collectionName = builder.collectionName;
+        this.indexName = builder.indexName;
         this.timeout = builder.timeout;
     }
 
@@ -17,16 +19,17 @@ public class DropCollectionParam {
     }
 
     /**
-     * The builder class for the {@link DropCollectionParam} object class.
+     * The builder class for the {@link HasIndexParam} object class.
      */
     public static final class Builder {
         private String collectionName;
+        private String indexName;
         private double timeout;
 
         private Builder() {}
 
         /**
-         * Specifies the name of a collection.
+         * Specifies the name of a collection. 
          * 
          * @param collectionName A collection name should be a string of 1 to 255 characters, starting with a letter 
          * or an underscore (_) and containing only numbers, letters, and underscores (_).
@@ -34,6 +37,18 @@ public class DropCollectionParam {
          */
         public Builder withCollectionName(String collectionName) {
             this.collectionName = collectionName;
+            return this;
+        }
+
+        /**
+         * Specifies the name of an index. 
+         * 
+         * @param indexName An index name should be a string of 1 to 255 characters, starting with a letter 
+         * or an underscore (_) and containing only numbers, letters, and underscores (_).
+         * @return The builder object itself.
+         */
+        public Builder withIndexName(String indexName) {
+            this.indexName = indexName;
             return this;
         }
 
@@ -49,12 +64,12 @@ public class DropCollectionParam {
         }
 
         /**
-         * Verifies the input parameters and creates a new {@link DropCollectionParam} instance.
+         * Verifies the input parameters and creates a new {@link HasIndexParam} object.
          * 
-         * @return {@link DropCollectionParam}
+         * @return {@link HasIndexParam}
          */
-        public DropCollectionParam build() {
-            return new DropCollectionParam(this);
+        public HasIndexParam build() {
+            return new HasIndexParam(this);
         }
     }
 }

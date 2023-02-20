@@ -1,15 +1,13 @@
 package io.milvus.param.alias;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#alterAlias(AlterAliasParam) alterAlias()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#describeAlias(DescribeAliasParam) describeAlias()}.
  */
-public class AlterAliasParam {
-    private final String collectionName;
+public class DescribeAliasParam {
     private final String alias;
     private final double timeout;
 
-    private AlterAliasParam(AlterAliasParam.Builder builder) {
-        this.collectionName = builder.collectionName;
+    private DescribeAliasParam(DescribeAliasParam.Builder builder) {
         this.alias = builder.alias;
         this.timeout = builder.timeout;
     }
@@ -19,14 +17,13 @@ public class AlterAliasParam {
     }
 
     /**
-     * The builder class for the {@link AlterAliasParam} class.
+     * The builder class for the {@link DescribeAliasParam} class.
      */
     public static class Builder {
-        private String collectionName;
         private String alias;
         private double timeout;
 
-        private Builder () {}
+        private Builder() {}
 
         /**
          * Specifies an alias desired for the collection.
@@ -37,19 +34,6 @@ public class AlterAliasParam {
          */
         public Builder withAlias(String alias) {
             this.alias = alias;
-            return this;
-        }
-
-        /**
-         * Specifies the name of a target collection. 
-         * 
-         * @param collectionName A collection name should be
-         *  a string of 1 to 255 characters, starting with a letter or an underscore (_) and containing only numbers, 
-         * letters, and underscores (_).
-         * @return The builder object itself.
-         */
-        public Builder withCollectionName(String collectionName) {
-            this.collectionName = collectionName;
             return this;
         }
 
@@ -65,12 +49,12 @@ public class AlterAliasParam {
         }
 
         /**
-         * Verifies the input parameters and creates a new {@link AlterAliasParam} object.
+         * Verifies the input parameters and creates a new {@link DescribeAliasParam} instance.
          * 
-         * @return {@link AlterAliasParam}
+         * @return {@link DescribeAliasParam}
          */
-        public AlterAliasParam build() {
-            return new AlterAliasParam(this);
-        }
-    }    
+        public DescribeAliasParam build() {
+            return new DescribeAliasParam(this);
+        }        
+    }
 }

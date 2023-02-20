@@ -5,9 +5,11 @@ package io.milvus.param.alias;
  */
 public class DropAliasParam {
     private final String alias;
+    private final double timeout;
 
     private DropAliasParam(DropAliasParam.Builder builder) {
         this.alias = builder.alias;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -19,6 +21,7 @@ public class DropAliasParam {
      */
     public static class Builder {
         private String alias;
+        private double timeout;
 
         private Builder () {}
 
@@ -35,9 +38,20 @@ public class DropAliasParam {
         }
 
         /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
+            return this;
+        }
+
+        /**
          * Verifies the input parameters and creates a new {@link DropAliasParam} instance.
          * 
-         * @return {@link CreateAliasParam}
+         * @return {@link DropAliasParam}
          */
         public DropAliasParam build() {
             return new DropAliasParam(this);

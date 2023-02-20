@@ -9,15 +9,17 @@ import io.milvus.common.enums.ConsistencyLevel;
  */
 public class CreateCollectionParam {
     private final String collectionName;
+    private final CollectionSchema schema;
     private final int numShards;
-    private final List<FieldType> schema;
     private final ConsistencyLevel consistencyLevel;
+    private final double timeout;
 
     private CreateCollectionParam(Builder builder) {
         this.collectionName = builder.collectionName;
         this.numShards = builder.numShards;
         this.schema = builder.schema;
         this.consistencyLevel = builder.consistencyLevel;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -30,8 +32,9 @@ public class CreateCollectionParam {
     public static final class Builder {
         private String collectionName;
         private int numShards;
-        private List<FieldType> schema;
+        private CollectionSchema schema;
         private ConsistencyLevel consistencyLevel; 
+        private double timeout;
         
         private Builder() {}
 
@@ -62,11 +65,11 @@ public class CreateCollectionParam {
         /**
          * Specifies the schema of the collection.
          * 
-         * @param fields A list of {@link FieldType} objects.
+         * @param schema A {@link CollectionSchema} object defines the schema of the collection in detail.
          * @return The builder object itself.
          */
-        public Builder withSchema(List<FieldType> fields) {
-            this.schema.addAll(fields);
+        public Builder withSchema(CollectionSchema schema) {
+            this.schema = schema;
             return this;
         }
 
@@ -84,13 +87,13 @@ public class CreateCollectionParam {
         }
 
         /**
-         * Adds a single field to the schema of the collection.
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
          * 
-         * @param field A {@link FieldType} object.
+         * @param timeout A double indicating the timeout duration in seconds.
          * @return The builder object itself.
          */
-        public Builder addField(FieldType field) {
-            this.schema.add(field);
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

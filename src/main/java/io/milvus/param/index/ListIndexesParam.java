@@ -1,14 +1,13 @@
-package io.milvus.param.collection;
+package io.milvus.param.index;
 
-/**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#dropCollection(DropCollectionParam) dropCollection()}.
- */
-public class DropCollectionParam {
+public class ListIndexesParam {
     private final String collectionName;
+    private final String fieldName;
     private final double timeout;
 
-    private DropCollectionParam(Builder builder) {
+    private ListIndexesParam(ListIndexesParam.Builder builder) {
         this.collectionName = builder.collectionName;
+        this.fieldName = builder.fieldName;
         this.timeout = builder.timeout;
     }
 
@@ -16,17 +15,15 @@ public class DropCollectionParam {
         return new Builder();
     }
 
-    /**
-     * The builder class for the {@link DropCollectionParam} object class.
-     */
     public static final class Builder {
         private String collectionName;
+        private String fieldName;
         private double timeout;
 
-        private Builder() {}
+        private Builder () {}
 
         /**
-         * Specifies the name of a collection.
+         * Specifies the name of a collection. 
          * 
          * @param collectionName A collection name should be a string of 1 to 255 characters, starting with a letter 
          * or an underscore (_) and containing only numbers, letters, and underscores (_).
@@ -34,6 +31,18 @@ public class DropCollectionParam {
          */
         public Builder withCollectionName(String collectionName) {
             this.collectionName = collectionName;
+            return this;
+        }
+        
+        /**
+         * Specifies the name of a field. 
+         * 
+         * @param fieldName A field name should be a string of 1 to 255 characters, starting with a letter 
+         * or an underscore (_) and containing only numbers, letters, and underscores (_).
+         * @return The builder object itself.
+         */
+        public Builder withFieldName(String fieldName) {
+            this.fieldName = fieldName;
             return this;
         }
 
@@ -49,12 +58,14 @@ public class DropCollectionParam {
         }
 
         /**
-         * Verifies the input parameters and creates a new {@link DropCollectionParam} instance.
+         * Verified the input and creates a new {@link ListIndexesParam} object.
          * 
-         * @return {@link DropCollectionParam}
+         * @return {@link ListIndexesParam} 
          */
-        public DropCollectionParam build() {
-            return new DropCollectionParam(this);
+        public ListIndexesParam build() {
+            return new ListIndexesParam(this);
         }
+
+
     }
 }

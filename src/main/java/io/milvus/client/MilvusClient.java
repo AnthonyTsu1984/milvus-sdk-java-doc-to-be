@@ -3,22 +3,12 @@ package io.milvus.client;
 import io.milvus.param.R;
 import io.milvus.param.RpcStatus;
 import io.milvus.param.Task;
-import io.milvus.param.ListAliasesResponse;
-import io.milvus.param.GetCollectionStatisticsResponse;
-import io.milvus.param.DescribeCollectionResponse;
-import io.milvus.param.ListCollectionsResponse;
-import io.milvus.param.DescribeIndexResponse;
-import io.milvus.param.ListImportTaskResponse;
-import io.milvus.param.GetImportStateResponse;
-import io.milvus.param.FlushResponse;
-import io.milvus.param.DescribePartitionResponse;
-import io.milvus.param.ListPartitionsResponse;
-import io.milvus.param.GetPartitionStatisticsResponse;
 import io.milvus.param.alias.*;
 import io.milvus.param.collection.*;
 import io.milvus.param.dml.*;
 import io.milvus.param.index.*;
 import io.milvus.param.partition.*;
+import io.milvus.param.response.*;
 
 
 /**
@@ -31,9 +21,9 @@ public interface MilvusClient {
      * Creates a collection with a pre-defined schema.
      * 
      * @param requestParam A {@link CreateCollectionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain CreateCollectionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> createCollection(CreateCollectionParam requestParam);
+    R<CreateCollectionResponse> createCollection(CreateCollectionParam requestParam);
 
     /**
      * Describes the detail of a collection.
@@ -57,17 +47,17 @@ public interface MilvusClient {
      *  {@link #loadCollection(LoadCollectionParam) loadCollection()}.
      * 
      * @param requestParam A {@link LoadCollectionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain ReleaseCollectionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> releaseCollection(ReleaseCollectionParam requestParam);
+    R<ReleaseCollectionResponse> releaseCollection(ReleaseCollectionParam requestParam);
 
     /**
      * Drops a collection with all the entities it contains.
      * 
      * @param requestParam A {@link DropCollectionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain DropCollectionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> dropCollection(DropCollectionParam requestParam);
+    R<DropCollectionResponse> dropCollection(DropCollectionParam requestParam);
 
     /**
      * Lists the statistical items of a collection.
@@ -89,9 +79,9 @@ public interface MilvusClient {
      * Shows whether a collection after the specified name exists.
      * 
      * @param requestParam A {@link HasCollectionParam} object as the request parameter.
-     * @return A boolean value indicates whether the specified collection exists.
+     * @return A {@linkplain HasCollectionResponse} indicates whether the specified collection exists.
      */
-    R<Boolean> hasCollection(HasCollectionParam requestParam);
+    R<HasCollectionResponse> hasCollection(HasCollectionParam requestParam);
 
     /**
      * Creates an index on the specified field in a collection.
@@ -113,9 +103,25 @@ public interface MilvusClient {
      * Drops the index of a collection.
      * 
      * @param requestParam A {@link DropIndexParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain DropIndexResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> dropIndex(DropIndexParam requestParam);
+    R<DropIndexResponse> dropIndex(DropIndexParam requestParam);
+
+    /**
+     * Lists the indexes built on the specified field.
+     * 
+     * @param requestParam A {@link ListIndexesParam} object as the request parameter.
+     * @return A {@linkplain ListIndexesResponse} object containing the list of index names.
+     */
+    R<ListIndexesResponse> listIndexes(ListIndexesParam requestParam);
+
+    /**
+     * Shows whether the specified index exists in the collection.
+     * 
+     * @param requestParam A {@link HasIndexParam} object as the request parameter.
+     * @return A {@linkplain HasIndexResponse} object indicating whether the index exists.
+     */
+    R<HasIndexResponse> hasIndex(HasIndexParam requestParam);
 
     /**
      * Inserts a data record into the specified collection as an entity.
@@ -170,9 +176,9 @@ public interface MilvusClient {
      * Creates a partition with a pre-defined schema.
      * 
      * @param requestParam A {@link CreatePartitionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain CreatePartitionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> createPartition(CreatePartitionParam requestParam);
+    R<CreatePartitionResponse> createPartition(CreatePartitionParam requestParam);
 
     /**
      * Describes the detail of a partition.
@@ -196,9 +202,9 @@ public interface MilvusClient {
      *  {@link #loadPartition(LoadPartitionParam) loadPartition()}.
      * 
      * @param requestParam A {@link LoadCollectionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain ReleasePartitionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> releasePartition(ReleasePartitionParam requestParam);
+    R<ReleasePartitionResponse> releasePartition(ReleasePartitionParam requestParam);
 
     /**
      * Lists all partition names in the database.
@@ -212,17 +218,17 @@ public interface MilvusClient {
      * Drops a partition with all the entities it contains.
      * 
      * @param requestParam A {@link DropPartitionParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain DropPartitionResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> dropPartition(DropPartitionParam requestParam);
+    R<DropPartitionResponse> dropPartition(DropPartitionParam requestParam);
 
     /**
      * Shows whether a partition after the specified name exists.
      * 
      * @param requestParam A {@link HasPartitionParam} object as the request parameter.
-     * @return A boolean value indicates whether the specified Partition exists.
+     * @return A {@linkplain HasPartitionResponse} indicates whether the specified Partition exists.
      */
-    R<Boolean> hasPartition(HasPartitionParam requestParam);
+    R<HasPartitionResponse> hasPartition(HasPartitionParam requestParam);
 
     /**
      * Lists the statistical items of a partition.
@@ -236,18 +242,18 @@ public interface MilvusClient {
      * Creates an alias for a collection.
      * 
      * @param requestParam A {@link CreateAliasParam} object as the request parameter.
-     * @return A {@link Task} object that offers methods to get information about ongoing tasks.
+     * @return A {@link CreateAliasResponse} object that offers methods to get information about ongoing tasks.
      * 
      */
-    R<RpcStatus> createAlias(CreateAliasParam requestParam);
+    R<CreateAliasResponse> createAlias(CreateAliasParam requestParam);
 
     /**
      * Changes an alias for a collection.
      * 
      * @param requestParam An {@link AlterAliasParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain AlterAliasResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> alterAlias(AlterAliasParam requestParam);
+    R<AlterAliasResponse> alterAlias(AlterAliasParam requestParam);
 
     /**
      * Lists all aliases associated with the specified collection.
@@ -261,7 +267,23 @@ public interface MilvusClient {
      * Drops a specified alias.
      * 
      * @param requestParam A {@link DropAliasParam} object as the request parameter.
-     * @return A {@linkplain RpcStatus} object indicating whether this operation succeeds.
+     * @return A {@linkplain DropAliasResponse} object indicating whether this operation succeeds.
      */
-    R<RpcStatus> dropAlias(DropAliasParam requestParam);
+    R<DropAliasResponse> dropAlias(DropAliasParam requestParam);
+
+    /**
+     * Describes a specified alias
+     * 
+     * @param requestParam A {@link DescribeAliasParam} object as the request parameter.
+     * @return A {@linkplain DescribeAliasResponse} object containing the details of the specified alias.
+     */
+    R<DescribeAliasResponse> describeAlias(DescribeAliasParam requestParam);
+
+    /**
+     * Checks whether the specified alias exists.
+     * 
+     * @param requestParam A {@link HasAliasParam} object as the request parameter.
+     * @return A {@linkplain HasAliasResponse} object indicating whether the specified alias exists.
+     */
+    R<HasAliasResponse> hasAlias(HasAliasParam requestParam);
 }

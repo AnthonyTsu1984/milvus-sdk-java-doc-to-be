@@ -10,10 +10,12 @@ import io.milvus.common.enums.ConsistencyLevel;
 public class CreatePartitionParam {
     private final String collectionName;
     private final String partitionName;
+    private final double timeout;
 
     private CreatePartitionParam(Builder builder) {
         this.collectionName = builder.collectionName;
         this.partitionName = builder.partitionName;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -26,6 +28,7 @@ public class CreatePartitionParam {
     public static final class Builder {
         private String collectionName;
         private String partitionName;
+        private double timeout;
         
         private Builder() {}
 
@@ -50,6 +53,17 @@ public class CreatePartitionParam {
          */
         public Builder withPartitionName(String partitionName) {
             this.partitionName = partitionName;
+            return this;
+        }
+
+        /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

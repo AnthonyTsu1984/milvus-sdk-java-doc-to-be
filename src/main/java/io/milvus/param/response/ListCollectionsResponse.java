@@ -1,4 +1,4 @@
-package io.milvus.param;
+package io.milvus.param.response;
 
 public class ListCollectionsResponse {
     

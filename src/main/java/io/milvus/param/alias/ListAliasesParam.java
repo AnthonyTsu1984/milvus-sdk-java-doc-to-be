@@ -5,9 +5,11 @@ package io.milvus.param.alias;
  */
 public class ListAliasesParam {
     private final String collectionName;
+    private final double timeout;
 
     private ListAliasesParam(ListAliasesParam.Builder builder) {
         this.collectionName = builder.collectionName;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -19,6 +21,7 @@ public class ListAliasesParam {
      */
     public static class Builder {
         private String collectionName;
+        private double timeout;
 
         private Builder () {}
 
@@ -34,6 +37,18 @@ public class ListAliasesParam {
             this.collectionName = collectionName;
             return this;
         }
+
+        /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
+            return this;
+        }
+           
 
         /**
          * Verifies the input parameters and creates a new {@link ListAliasesParam} instance.

@@ -5,9 +5,11 @@ package io.milvus.param.collection;
  */
 public class HasCollectionParam {
     private final String collectionName;
+    private final double timeout;
 
     private HasCollectionParam(Builder builder) {
         this.collectionName = builder.collectionName;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -19,6 +21,7 @@ public class HasCollectionParam {
      */
     public static final class Builder {
         private String collectionName;
+        private double timeout;
 
         private Builder() {}
 
@@ -31,6 +34,17 @@ public class HasCollectionParam {
          */
         public Builder withCollectionName(String collectionName) {
             this.collectionName = collectionName;
+            return this;
+        }
+
+        /**
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
+         * 
+         * @param timeout A double indicating the timeout duration in seconds.
+         * @return The builder object itself.
+         */
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

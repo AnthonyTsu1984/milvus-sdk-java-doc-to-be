@@ -6,10 +6,12 @@ package io.milvus.param.alias;
 public class CreateAliasParam {
     private final String collectionName;
     private final String alias;
+    private final double timeout;
 
     private CreateAliasParam(CreateAliasParam.Builder builder) {
         this.collectionName = builder.collectionName;
         this.alias = builder.alias;
+        this.timeout = builder.timeout;
     }
 
     public static Builder newBuilder() {
@@ -22,8 +24,21 @@ public class CreateAliasParam {
     public static class Builder {
         private String collectionName;
         private String alias;
+        private double timeout;
 
         private Builder () {}
+
+        /**
+         * Specifies an alias desired for the collection.
+         * 
+         * @param alias A collection alias should be a string of 1 to 255 characters, starting
+         *  with a letter or an underscore (_) and containing only numbers, letters, and underscores (_).
+         * @return The builder object itself.
+         */
+        public Builder withAlias(String alias) {
+            this.alias = alias;
+            return this;
+        }
 
         /**
          * Specifies the name of a target collection. 
@@ -39,14 +54,13 @@ public class CreateAliasParam {
         }
 
         /**
-         * Specifies an alias desired for the collection.
+         * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
          * 
-         * @param alias A collection alias should be a string of 1 to 255 characters, starting
-         *  with a letter or an underscore (_) and containing only numbers, letters, and underscores (_).
+         * @param timeout A double indicating the timeout duration in seconds.
          * @return The builder object itself.
          */
-        public Builder withAlias(String alias) {
-            this.alias = alias;
+        public Builder withTimeout(double timeout) {
+            this.timeout = timeout;
             return this;
         }
 

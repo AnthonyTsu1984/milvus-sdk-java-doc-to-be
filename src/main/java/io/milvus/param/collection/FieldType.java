@@ -91,8 +91,8 @@ public class FieldType {
 
         /**
          * @hidden
-         * @param typeParams
-         * @return
+         * @param typeParams to be determined.
+         * @return The builder object itself.
          */
         public Builder withTypeParams(Map<String, String> typeParams) {
             typeParams.forEach(this.typeParams::put);
@@ -126,7 +126,7 @@ public class FieldType {
          * 
          * @param autoID A <code>true</code> value indicates that a primary key will be added and it automatically 
          * increments. In this case, you do not need to use {@link #withPrimaryKey(boolean)} manually specified a primary field.
-         * @return
+         * @return The builder object itself
          */
         public Builder withAutoID(boolean autoID) {
             this.autoID = autoID;

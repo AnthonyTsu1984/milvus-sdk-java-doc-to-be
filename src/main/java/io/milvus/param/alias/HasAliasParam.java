@@ -1,32 +1,29 @@
 package io.milvus.param.alias;
 
 /**
- * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#alterAlias(AlterAliasParam) alterAlias()}.
+ * The object class used to prepare parameters for {@link io.milvus.client.MilvusClient#hasAlias(HasAliasParam) hasAlias()}.
  */
-public class AlterAliasParam {
-    private final String collectionName;
+public class HasAliasParam {
     private final String alias;
     private final double timeout;
 
-    private AlterAliasParam(AlterAliasParam.Builder builder) {
-        this.collectionName = builder.collectionName;
+    private HasAliasParam(HasAliasParam.Builder builder) {
         this.alias = builder.alias;
         this.timeout = builder.timeout;
     }
-
+    
     public static Builder newBuilder() {
         return new Builder();
     }
 
     /**
-     * The builder class for the {@link AlterAliasParam} class.
+     * The builder class for the {@link HasAliasParam} class.
      */
     public static class Builder {
-        private String collectionName;
         private String alias;
         private double timeout;
 
-        private Builder () {}
+        private Builder() {}
 
         /**
          * Specifies an alias desired for the collection.
@@ -39,20 +36,7 @@ public class AlterAliasParam {
             this.alias = alias;
             return this;
         }
-
-        /**
-         * Specifies the name of a target collection. 
-         * 
-         * @param collectionName A collection name should be
-         *  a string of 1 to 255 characters, starting with a letter or an underscore (_) and containing only numbers, 
-         * letters, and underscores (_).
-         * @return The builder object itself.
-         */
-        public Builder withCollectionName(String collectionName) {
-            this.collectionName = collectionName;
-            return this;
-        }
-
+        
         /**
          * (Optional) Specifies the timeout duration of this operation. If not called, no such limit applies.
          * 
@@ -63,14 +47,10 @@ public class AlterAliasParam {
             this.timeout = timeout;
             return this;
         }
-
-        /**
-         * Verifies the input parameters and creates a new {@link AlterAliasParam} object.
-         * 
-         * @return {@link AlterAliasParam}
-         */
-        public AlterAliasParam build() {
-            return new AlterAliasParam(this);
+        
+        public HasAliasParam build() {
+            return new HasAliasParam(this);
         }
-    }    
+    }
+   
 }
